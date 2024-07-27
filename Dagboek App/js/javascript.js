@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Haal de HTML-elementen op
-    var dagboekFormulier = document.getElementById('dagboekFormulier');
-    var titelInvoer = document.getElementById('titelInvoer');
-    var inhoudInvoer = document.getElementById('inhoudInvoer');
-    var dagboekLijst = document.getElementById('dagboekLijst');
-    var verwijderAlleKnop = document.getElementById('verwijderAlleKnop');
+    let dagboekFormulier = document.getElementById('dagboekFormulier');
+    let titelInvoer = document.getElementById('titelInvoer');
+    let inhoudInvoer = document.getElementById('inhoudInvoer');
+    let dagboekLijst = document.getElementById('dagboekLijst');
+    let verwijderAlleKnop = document.getElementById('verwijderAlleKnop');
 
     // Verwerk formulierverzending
     dagboekFormulier.addEventListener('submit', function(event) {
