@@ -1,22 +1,59 @@
-# web_advanced_portfolio
-web_advanced_portfolio / examen
+web advanced, portfolio
 
+-----------------------------------------------------------------------------------------
 
 Dagboek App
-Dit project is een eenvoudige webapplicatie waarmee je dagboeknotities kunt toevoegen, weergeven en verwijderen. De notities worden opgeslagen in de lokale opslag van de browser, zodat ze behouden blijven tussen sessies.
+In dit project wordt er een dagboek ontwikkeld met behulp van HTML, CSS en JavaScript. 
+De bedoeling is om comments te kunnen opslagen en bijhouden zelfs na het herlanden van de web page.
+Dit project ik gemaakt in de kader van het examen web advanced.
+
+-----------------------------------------------------------------------------------------
 
 Bestandstructuur:
-index.html: bevat de HTML-structuur van de webpagina.
-css/style.css: bevat de CSS-stijlen voor de pagina.
-js/javascript.js: bevat de JavaScript-code voor het toevoegen, weergeven en verwijderen van notities.
 
-Gebruikte bronnen: 
-  - HTML : https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started
-  - HTML : https://www.w3schools.com/html/html_forms.asp
-  - CSS : https://www.w3schools.com/css/css3_flexbox.asp
-  - CSS : https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics
-  - JS : https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
-  - JS : https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById
-  - JS : https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API
-  - JS : https://www.w3schools.com/jsref/met_document_createelement.asp
-  - Web Advanced EHB : Code uit oplossingen van werkcollege werden ook gebruikt.
+index.html: hier staat de basis HTML van de pagina in.
+css/style.css: hier staan de stijlen in voor de pagina.
+js/javascript.js: hier staat de code om notities toe te voegen, weer te geven en te verwijderen.
+
+-----------------------------------------------------------------------------------------
+
+Functionaliteiten:
+
+Je kan een titel en tekst invoeren en opslaan als notitie.
+Elke notitie heeft een verwijder knop.
+Er is een knop om alle notities te verwijderen.
+Notities worden opgeslagen in de browser en blijven bewaard, ook als je de pagina herlaadt.
+
+
+-----------------------------------------------------------------------------------------
+
+HTML:
+
+https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started
+https://www.w3schools.com/html/html_forms.asp
+
+-----------------------------------------------------------------------------------------
+
+CSS:
+
+https://www.w3schools.com/css/css3_flexbox.asp
+https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics
+https://www.w3schools.com/css/css3_animations.asp
+
+-----------------------------------------------------------------------------------------
+
+JavaScript:
+
+https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById
+https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API
+https://www.w3schools.com/jsref/met_document_createelement.asp
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises
+https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await
+https://developer.mozilla.org/en-US/docs/Glossary/IIFE
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+
+-----------------------------------------------------------------------------------------
+
+Web Advanced EHB: Code uit oplossingen van werkcolleges ook gebruikt.
