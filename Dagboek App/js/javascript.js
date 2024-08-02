@@ -1,70 +1,139 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Haal de HTML-elementen op
-    let dagboekFormulier = document.getElementById('dagboekFormulier');
-    let titelInvoer = document.getElementById('titelInvoer');
-    let inhoudInvoer = document.getElementById('inhoudInvoer');
-    let dagboekLijst = document.getElementById('dagboekLijst');
-    let verwijderAlleKnop = document.getElementById('verwijderAlleKnop');
+    let dagboekFormulier = document.getElementById('dagboekFormulier'); // formulier
+    let titelInvoer = document.getElementById('titelInvoer'); // invoer veld voor titel
+    let inhoudInvoer = document.getElementById('inhoudInvoer'); // invoer veld voor inhoud
+    let dagboekLijst = document.getElementById('dagboekLijst'); // lijst van notities
+    let verwijderAlleKnop = document.getElementById('verwijderAlleKnop'); // knop om alles te verwijderen
 
     // Verwerk formulierverzending
     dagboekFormulier.addEventListener('submit', function(event) {
-        event.preventDefault();
-        let titel = titelInvoer.value;
-        let inhoud = inhoudInvoer.value;
-        voegDagboekNotitieToe(titel, inhoud);
-        titelInvoer.value = '';
-        inhoudInvoer.value = '';
+        event.preventDefault(); // Formulier niet versturen
+        let titel = titelInvoer.value; // haal de titel op
+        let inhoud = inhoudInvoer.value; // haal de inhoud op
+        voegDagboekNotitieToe(titel, inhoud); // voeg de notitie toe
+        titelInvoer.value = ''; // new string
+        inhoudInvoer.value = ''; // new string
     });
 
     // Verwerk het verwijderen van alle notities
-    verwijderAlleKnop.addEventListener('click', function() {
-        localStorage.removeItem('dagboekNotities');
-        toonDagboekNotities();
+    verwijderAlleKnop.addEventListener('click', () => {
+        localStorage.removeItem('dagboekNotities'); // verwijder alle notities uit localStorage
+        toonDagboekNotities(); // toon de notities
     });
 
     // Nieuwe dagboeknotitie toevoegen
-    const voegDagboekNotitieToe = (titel, inhoud) => {
-        let notities = haalDagboekNotitiesOp();
-        notities.push({ titel, inhoud }); // gebruik van shorthand property names
-        localStorage.setItem('dagboekNotities', JSON.stringify(notities));
-        toonDagboekNotities();
+    function voegDagboekNotitieToe(titel, inhoud) {
+        let notities = haalDagboekNotitiesOp(); // haal de bestaande notities op
+        notities.push({ titel: titel, inhoud: inhoud }); // voeg de nieuwe notitie toe
+        localStorage.setItem('dagboekNotities', JSON.stringify(notities)); // sla de notities op in localStorage
+        toonDagboekNotities(); // toon de notities
     }
 
     // Dagboeknotities ophalen uit lokale opslag
-    const haalDagboekNotitiesOp = () => {
-        let notities = localStorage.getItem('dagboekNotities');
-        return notities ? JSON.parse(notities) : [];
+    function haalDagboekNotitiesOp() {
+        let notities = localStorage.getItem('dagboekNotities'); // haal de notities op uit localStorage
+        return notities ? JSON.parse(notities) : []; // parse de notities of geef een lege array terug
     }
 
     // Toon alle dagboeknotities
-    const toonDagboekNotities = () => {
-        let notities = haalDagboekNotitiesOp();
-        dagboekLijst.innerHTML = '';
-        notities.forEach((notitie, index) => {
-            // Gebruik van destructuring
-            let { titel, inhoud } = notitie;
-            let li = document.createElement('li');
-            // Gebruik van template literals
-            li.innerHTML = `${titel} - ${inhoud}`;
-            let verwijderKnop = document.createElement('button');
-            verwijderKnop.textContent = 'Verwijderen';
-            verwijderKnop.onclick = () => {
-                verwijderNotitie(index); // verwijder notitie bij klikken
+    function toonDagboekNotities() {
+        let notities = haalDagboekNotitiesOp(); // haal de notities op
+        dagboekLijst.innerHTML = ''; // clear de lijst
+        // Loop door de notities - voor elke notitie
+        notities.forEach((notitie, index) => { 
+            let li = document.createElement('li'); // maak een nieuw lijst item
+            li.textContent = `${notitie.titel} - ${notitie.inhoud}`; // gebruik template literals
+            let verwijderKnop = document.createElement('button'); // maak een verwijder knop
+            verwijderKnop.textContent = 'Verwijderen'; // tekst op de knop
+            verwijderKnop.onclick = () => { // wat er gebeurd als je op de knop klikt
+                verwijderNotitie(index); // verwijder de notitie
             };
-            li.appendChild(verwijderKnop);
-            dagboekLijst.appendChild(li);
+            li.appendChild(verwijderKnop); // voeg de knop toe aan de lijst item
+            dagboekLijst.appendChild(li); // voeg de lijst item toe aan de lijst
         });
     }
 
     // Verwijder een dagboeknotitie
-    const verwijderNotitie = (index) => {
-        let notities = haalDagboekNotitiesOp(); // Haal notities op
-        // Gebruik van de spread operator
-        let nieuweNotities = [...notities.slice(0, index), ...notities.slice(index + 1)];
-        localStorage.setItem('dagboekNotities', JSON.stringify(nieuweNotities)); // Sla gewijzigde lijst op
-        toonDagboekNotities();
+    function verwijderNotitie(index) {
+        let notities = haalDagboekNotitiesOp(); // Haal de notities op
+        notities.splice(index, 1); // Verwijder de notitie uit de array
+        localStorage.setItem('dagboekNotities', JSON.stringify(notities)); // Sla de gewijzigde lijst op
+        toonDagboekNotities(); // Update de lijst
     }
 
     // Notities tonen bij het laden van de pagina
-    toonDagboekNotities(); // Toon notities
+    toonDagboekNotities(); // Toon de notities
+
+    // Voorbeeld van een Promise - belofte voor data ophalen
+    function fetchData() {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                let data = 'Belangrijke data'; // Simuleer het ophalen van data
+                resolve(data); // Los de belofte in
+            }, 1000); // Wacht 1 seconde
+        });
+    }
+
+    // Gebruik van de promise - wachten op data
+    fetchData().then(data => {
+        console.log('Data ontvangen:', data); // Toon data in console
+    }).catch(error => {
+        console.log('Er is een fout opgetreden:', error); // Toon fout in console
+    });
+
+    // Voorbeeld van async/await - makkelijkere manier om op data te wachten
+    async function fetchAsyncData() {
+        try {
+            let data = await fetchData(); // Wacht op data
+            console.log('Async data ontvangen:', data); // Toon data in console
+        } catch (error) {
+            console.log('Fout bij async data:', error); // Toon fout in console
+        }
+    }
+
+    fetchAsyncData(); // Roep async functie aan
+
+    // IIFE voorbeeld - een functie die zichzelf uitvoert
+    (function() {
+        console.log('Dit is een Immediately Invoked Function Expression (IIFE)'); // Voer IIFE uit
+    })();
+
+    // Animatie voorbeeld toevoegen
+    // Voegt een fade-in effect toe aan de dagboek notities
+    let lijstItems = document.querySelectorAll('#dagboekLijst li'); // alle lijst items pakken
+    lijstItems.forEach(item => {
+        item.style.animation = 'fadeIn 1s'; // animatie toevoegen
+    });
+
+    // Flexbox layout voorbeeld
+    let container = document.querySelector('body'); // pak het body element
+    container.style.display = 'flex'; // flexbox toepassen
+    container.style.flexDirection = 'column'; // kolom richting
+    container.style.alignItems = 'center'; // centreer alles horizontaal
+
+    // Template literals voorbeeld bij het tonen van notities
+    function toonDagboekNotities() {
+        let notities = haalDagboekNotitiesOp(); // Haal de notities op
+        dagboekLijst.innerHTML = ''; // Maak de lijst leeg
+        notities.forEach((notitie, index) => {
+            let li = document.createElement('li'); // Creëer een nieuw lijst item
+            li.textContent = `${notitie.titel} - ${notitie.inhoud}`; // Gebruik template literals
+            let verwijderKnop = document.createElement('button'); // Creëer een verwijderknop
+            verwijderKnop.textContent = 'Verwijderen';
+            verwijderKnop.onclick = () => {
+                verwijderNotitie(index); // Verwijder de notitie
+            };
+            li.appendChild(verwijderKnop); // Voeg de knop toe aan het lijst item
+            dagboekLijst.appendChild(li); // Voeg het lijst item toe aan de lijst
+        });
+    }
+
+    // Arrow function voorbeeld
+    // Voegt een simpele click event listener toe aan de knop
+    let knop = document.querySelector('#verwijderAlleKnop');
+    knop.addEventListener('click', () => {
+        console.log('Alle notities zijn verwijderd!'); // melding in console
+    });
+
 });
