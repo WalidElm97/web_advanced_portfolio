@@ -1,64 +1,74 @@
 body {
     font-family: Arial, sans-serif;
     padding: 20px;
-    background-color: lightgray;
+    background-color: lichtgrijs;
+    display: flex; /* Flexbox voor layout */
+    flex-direction: column; /* Kolomrichting */
+    align-items: center; /* Centreer alles horizontaal */
 }
 
 h1 {
     text-align: center;
     margin-bottom: 20px;
-    color: darkblue;
+    color: donkerblauw; /* blauwe kleur */
 }
 
 form {
     display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
+    flex-direction: column; /* kolomrichting */
+    margin-bottom: 20px; /* ondermarge */
 }
 
 input, textarea {
-    margin-bottom: 10px;
-    padding: 10px;
+    margin-bottom: 10px; /* ondermarge */
+    padding: 10px; /* opvulling */
     font-size: 16px;
-    border: 1px solid gray;
+    border: 1px solid grijs; /* grijze rand */
     border-radius: 4px;
 }
 
 button {
-    padding: 10px;
+    padding: 10px; /* opvulling */
     font-size: 16px;
     border: none;
     border-radius: 4px;
-    background-color: green;
-    color: white;
+    background-color: groen; /* groene kleur */
+    color: wit; /* witte kleur */
     cursor: pointer;
 }
 
 button:hover {
-    background-color: darkgreen;
+    background-color: donkergroen; /* donkere groene kleur */
 }
 
 #dagboekLijst {
-    list-style: none;
-    padding: 0;
+    list-style: none; /* geen lijststijl */
+    padding: 0; /* geen opvulling */
 }
 
 #dagboekLijst li {
-    background-color: white;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid gray;
+    background-color: wit; /* witte achtergrond */
+    padding: 10px; /* opvulling */
+    margin-bottom: 10px; /* ondermarge */
+    border: 1px solid grijs; /* grijze rand */
     border-radius: 4px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: flex; /* flexbox */
+    justify-content: space-between; /* ruimte tussen elementen */
+    align-items: center; /* centreer items */
+    animation: fadeIn 1s ease-in; /* animatie toegepast */
 }
 
 #dagboekLijst li button {
-    background-color: red;
-    color: white;
+    background-color: rood; /* rode kleur */
+    color: wit; /* witte kleur */
 }
 
 #dagboekLijst li button:hover {
-    background-color: darkred;
+    background-color: donkerrood; /* donkere rode kleur */
+}
+
+/* Basis CSS animatie */
+@keyframes fadeIn {
+    from { opacity: 0; } /* start onzichtbaar */
+    to { opacity: 1; } /* eindig zichtbaar */
 }
