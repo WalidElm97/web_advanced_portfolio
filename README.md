@@ -53,6 +53,10 @@ https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_awa
 https://developer.mozilla.org/en-US/docs/Glossary/IIFE
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+https://www.digitalocean.com/community/tutorials/4-uses-of-javascripts-arraymap-you-should-know
+https://javascript.info/destructuring-assignment
 
 -----------------------------------------------------------------------------------------
 
