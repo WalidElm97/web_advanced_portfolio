@@ -6,14 +6,43 @@ document.addEventListener('DOMContentLoaded', function() {
     let dagboekLijst = document.getElementById('dagboekLijst'); // lijst van notities
     let verwijderAlleKnop = document.getElementById('verwijderAlleKnop'); // knop om alles te verwijderen
 
+    // Gebruiken van een constante
+    const MAX_LENGTE = 100;
+
+    // Check of velden leeg zijn
+    function zijnVeldenLeeg(titel, inhoud) {
+        if (titel.trim() === '') {
+            return true;
+        }
+        if (inhoud.trim() === '') {
+            return true;
+        }
+        return false;
+    }
+
     // Verwerk formulierverzending
     dagboekFormulier.addEventListener('submit', function(event) {
         event.preventDefault(); // Formulier niet versturen
         let titel = titelInvoer.value; // haal de titel op
         let inhoud = inhoudInvoer.value; // haal de inhoud op
+
+        // Formulier valideren
+        if (titel.length > MAX_LENGTE) {
+            alert('Titel is te lang!');
+            return;
+        }
+        if (inhoud.length > MAX_LENGTE) {
+            alert('Inhoud is te lang!');
+            return;
+        }
+        if (zijnVeldenLeeg(titel, inhoud)) { // Correcte functienaam
+            alert('Vul alle velden in!');
+            return;
+        }
+
         voegDagboekNotitieToe(titel, inhoud); // voeg de notitie toe
-        titelInvoer.value = ''; // new string
-        inhoudInvoer.value = ''; // new string
+        titelInvoer.value = ''; // reset de titel invoerveld
+        inhoudInvoer.value = ''; // reset de inhoud invoerveld
     });
 
     // Verwerk het verwijderen van alle notities
@@ -38,19 +67,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Toon alle dagboeknotities
     function toonDagboekNotities() {
-        let notities = haalDagboekNotitiesOp(); // haal de notities op
-        dagboekLijst.innerHTML = ''; // clear de lijst
-        // Loop door de notities - voor elke notitie
-        notities.forEach((notitie, index) => { 
-            let li = document.createElement('li'); // maak een nieuw lijst item
-            li.textContent = `${notitie.titel} - ${notitie.inhoud}`; // gebruik template literals
-            let verwijderKnop = document.createElement('button'); // maak een verwijder knop
-            verwijderKnop.textContent = 'Verwijderen'; // tekst op de knop
-            verwijderKnop.onclick = () => { // wat er gebeurd als je op de knop klikt
-                verwijderNotitie(index); // verwijder de notitie
+        let notities = haalDagboekNotitiesOp(); // Haal de notities op
+        dagboekLijst.innerHTML = ''; // Maak de lijst leeg
+        notities.forEach((notitie, index) => {
+            let li = document.createElement('li'); // Creëer een nieuw lijst item
+            let { titel, inhoud } = notitie; // Destructuring
+            li.textContent = `${titel} - ${inhoud}`; // Gebruik template literals
+            let verwijderKnop = document.createElement('button'); // Creëer een verwijderknop
+            verwijderKnop.textContent = 'Verwijderen';
+            verwijderKnop.onclick = () => {
+                verwijderNotitie(index); // Verwijder de notitie
             };
-            li.appendChild(verwijderKnop); // voeg de knop toe aan de lijst item
-            dagboekLijst.appendChild(li); // voeg de lijst item toe aan de lijst
+            li.appendChild(verwijderKnop); // Voeg de knop toe aan het lijst item
+            dagboekLijst.appendChild(li); // Voeg het lijst item toe aan de lijst
         });
     }
 
@@ -94,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     fetchAsyncData(); // Roep async functie aan
 
-    // IIFE voorbeeld - een functie die zichzelf uitvoert
+    // IIFE voorbeeld - een functie die zichzelf uitvoert !!!!!!!!!!!!!!!!! MOET NOG VERWERKT WORDEN !!!!!!!!!!!!!!!!!! 
     (function() {
         console.log('Dit is een Immediately Invoked Function Expression (IIFE)'); // Voer IIFE uit
     })();
@@ -118,7 +147,8 @@ document.addEventListener('DOMContentLoaded', function() {
         dagboekLijst.innerHTML = ''; // Maak de lijst leeg
         notities.forEach((notitie, index) => {
             let li = document.createElement('li'); // Creëer een nieuw lijst item
-            li.textContent = `${notitie.titel} - ${notitie.inhoud}`; // Gebruik template literals
+            let { titel, inhoud } = notitie; // Destructuring
+            li.textContent = `${titel} - ${inhoud}`; // Gebruik template literals
             let verwijderKnop = document.createElement('button'); // Creëer een verwijderknop
             verwijderKnop.textContent = 'Verwijderen';
             verwijderKnop.onclick = () => {
@@ -136,4 +166,12 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Alle notities zijn verwijderd!'); // melding in console
     });
 
+    // Destructuring voorbeeld
+    function toonDestructuringVoorbeeld() {
+        let voorbeeldNotitie = { titel: 'Voorbeeld Titel', inhoud: 'Voorbeeld Inhoud' };
+        let { titel, inhoud } = voorbeeldNotitie;
+        console.log('Destructuring voorbeeld:', titel, inhoud);
+    }
+
+    toonDestructuringVoorbeeld();
 });
