@@ -1,74 +1,127 @@
+/* Styles voor het body element */
 body {
     font-family: Arial, sans-serif;
-    padding: 20px;
-    background-color: lichtgrijs;
+    padding: 30px; /* Padding een beetje verhoogd */
+    background-color: beige; /* Nieuwe achtergrondkleur */
     display: flex; /* Flexbox voor layout */
-    flex-direction: column; /* Kolomrichting */
+    flex-direction: column; /* Layout in kolomrichting */
     align-items: center; /* Centreer alles horizontaal */
 }
 
+/* Stijlen voor de h1 kop */
 h1 {
     text-align: center;
-    margin-bottom: 20px;
-    color: donkerblauw; /* blauwe kleur */
+    margin-bottom: 25px; /* Iets grotere marge onder */
+    color: donkergrijs; /* Andere kleur voor de titel */
 }
 
+/* Stijlen voor het form */
 form {
     display: flex;
-    flex-direction: column; /* kolomrichting */
-    margin-bottom: 20px; /* ondermarge */
+    flex-direction: column; /* Layout in kolomrichting */
+    margin-bottom: 15px; /* Iets kleinere ondermarge */
 }
 
+/* Stijlen voor input en textarea */
 input, textarea {
-    margin-bottom: 10px; /* ondermarge */
-    padding: 10px; /* opvulling */
-    font-size: 16px;
-    border: 1px solid grijs; /* grijze rand */
-    border-radius: 4px;
+    margin-bottom: 15px; /* Grotere ondermarge */
+    padding: 12px; /* Grotere opvulling */
+    font-size: 18px; /* Grotere tekst */
+    border: 1px solid lichtgrijs; /* Lichtere rand */
+    border-radius: 5px; /* Grotere hoekjes */
 }
 
+/* Stijlen voor knoppen */
 button {
-    padding: 10px; /* opvulling */
-    font-size: 16px;
+    padding: 12px; /* Grotere opvulling */
+    font-size: 18px; /* Grotere tekst */
     border: none;
-    border-radius: 4px;
-    background-color: groen; /* groene kleur */
-    color: wit; /* witte kleur */
+    border-radius: 5px; /* Grotere hoekjes */
+    background-color: donkergrijs; /* Andere kleur voor de knop */
+    color: zwart; /* Zwarte tekstkleur */
     cursor: pointer;
 }
 
+/* Stijlen voor knop hover */
 button:hover {
-    background-color: donkergroen; /* donkere groene kleur */
+    background-color: zwart; /* Donkere kleur bij hover */
 }
 
+/* Stijlen voor de dagboek lijst */
 #dagboekLijst {
-    list-style: none; /* geen lijststijl */
-    padding: 0; /* geen opvulling */
+    padding: 5px; /* Iets padding toegevoegd */
 }
 
+/* Stijlen voor de dagboek lijst items */
 #dagboekLijst li {
-    background-color: wit; /* witte achtergrond */
-    padding: 10px; /* opvulling */
-    margin-bottom: 10px; /* ondermarge */
-    border: 1px solid grijs; /* grijze rand */
-    border-radius: 4px;
-    display: flex; /* flexbox */
-    justify-content: space-between; /* ruimte tussen elementen */
-    align-items: center; /* centreer items */
-    animation: fadeIn 1s ease-in; /* animatie toegepast */
+    background-color: lichtblauw; /* Andere achtergrondkleur */
+    padding: 15px; /* Grotere opvulling */
+    margin-bottom: 15px; /* Grotere ondermarge */
+    border: 1px solid donkergrijs; /* Andere randkleur */
+    border-radius: 5px; /* Grotere hoekjes */
+    display: flex; /* Flexbox layout */
+    justify-content: space-between; /* Ruimte tussen elementen */
+    align-items: center; /* Centreer items */
+    animation: fadeIn 1.5s ease-in; /* Langere animatie */
 }
 
+/* Stijlen voor de knoppen in de dagboek lijst items */
 #dagboekLijst li button {
-    background-color: rood; /* rode kleur */
-    color: wit; /* witte kleur */
+    background-color: oranje; /* Andere kleur voor de knop */
+    color: zwart; /* Zwarte tekstkleur */
 }
 
+/* Stijlen voor knop hover in de dagboek lijst items */
 #dagboekLijst li button:hover {
-    background-color: donkerrood; /* donkere rode kleur */
+    background-color: donkeroranje; /* Donkere kleur bij hover */
 }
 
 /* Basis CSS animatie */
 @keyframes fadeIn {
-    from { opacity: 0; } /* start onzichtbaar */
-    to { opacity: 1; } /* eindig zichtbaar */
+    from { opacity: 0; } /* Start onzichtbaar */
+    to { opacity: 1; } /* Eindig zichtbaar */
+}
+
+/* Stijlen voor de extraInfo sectie */
+#extraInfo {
+    margin-top: 25px; /* Grotere marge boven */
+    padding: 12px; /* Grotere opvulling */
+    border: 1px solid lichtgrijs; /* Lichtere rand */
+    border-radius: 5px; /* Grotere hoekjes */
+    background-color: lichtgeel; /* Achtergrondkleur */
+    width: 100%;
+    max-width: 650px; /* Bredere max breedte */
+}
+
+/* Stijlen voor de footer */
+footer {
+    margin-top: 25px; /* Grotere marge boven */
+    padding: 12px; /* Grotere opvulling */
+    background-color: grijs; /* Achtergrondkleur */
+    color: zwart; /* Zwarte tekstkleur */
+    text-align: center;
+    width: 100%;
+    max-width: 650px; /* Bredere max breedte */
+}
+
+/* Stijlen voor de categorieen sectie */
+#categorieenSectie {
+    margin-top: 25px; /* Grotere marge boven */
+    padding: 12px; /* Grotere opvulling */
+    border: 1px dashed donkergrijs; /* Randstijl en kleur */
+    border-radius: 5px; /* Grotere hoekjes */
+    background-color: lichtroze; /* Achtergrondkleur */
+    width: 100%;
+    max-width: 650px; /* Bredere max breedte */
+    display: flex;
+    justify-content: space-around;
+}
+
+/* Stijlen voor de knoppen in de categorieen sectie */
+#categorieenSectie button {
+    padding: 8px; /* Grotere opvulling */
+    font-size: 16px; /* Grotere tekst */
+    background-color: lichtgroen; /* Achtergrondkleur */
+    border: 1px solid donkergroen; /* Randkleur */
+    border-radius: 5px; /* Grotere hoekjes */
 }
