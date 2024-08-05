@@ -2,12 +2,14 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <title>Dagboek App</title>
+    <title>Dagboek</title>
+    <!-- CSS en JS  laden -->
     <link rel="stylesheet" href="css/style.css">
     <script defer src="js/javascript.js"></script>
 </head>
 <body>
-    <h1>Dagboek App</h1>
+    <h1>Dagboek</h1>
+    <!-- Begin v formulier -->
     <form id="dagboekFormulier">
         <input type="text" id="titelInvoer" placeholder="Titel" required>
         <textarea id="inhoudInvoer" placeholder="Inhoud" required></textarea>
@@ -15,5 +17,24 @@
     </form>
     <button id="verwijderAlleKnop">Verwijder Alle Notities</button>
     <ul id="dagboekLijst"></ul>
+    
+    <!-- Categorieën (extra elementen kunnen toegevoegd worden, JS moet ook aangepast worden.) -->
+    <section id="categorieenSectie">
+        <h2>Categorieën</h2>
+        <button>Student</button>
+        <button>Docent</button>
+    </section>
+
+    <!-- Berichtje voor extra informatie op de web page  -->
+    <section id="extraInfo">
+        <h2>Extra Informatie</h2>
+        <p>Welkom bij de Dagboek Notities Applicatie<br> 
+        Hier kunt u uw dagelijkse notities opslaan en beheren.</p>
+    </section>
+    
+    <footer>
+        <p>&Dagboek Notitie Applicatie voor Web Advanced.</p>
+    </footer>
+
 </body>
 </html>
