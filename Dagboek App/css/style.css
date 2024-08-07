@@ -103,25 +103,3 @@ footer {
     width: 100%;
     max-width: 650px; /* Bredere max breedte */
 }
-
-/* Stijlen voor de categorieen sectie */
-#categorieenSectie {
-    margin-top: 25px; /* Grotere marge boven */
-    padding: 12px; /* Grotere opvulling */
-    border: 1px dashed donkergrijs; /* Randstijl en kleur */
-    border-radius: 5px; /* Grotere hoekjes */
-    background-color: lichtroze; /* Achtergrondkleur */
-    width: 100%;
-    max-width: 650px; /* Bredere max breedte */
-    display: flex;
-    justify-content: space-around;
-}
-
-/* Stijlen voor de knoppen in de categorieen sectie */
-#categorieenSectie button {
-    padding: 8px; /* Grotere opvulling */
-    font-size: 16px; /* Grotere tekst */
-    background-color: lichtgroen; /* Achtergrondkleur */
-    border: 1px solid donkergroen; /* Randkleur */
-    border-radius: 5px; /* Grotere hoekjes */
-}
